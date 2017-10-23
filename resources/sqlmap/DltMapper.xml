@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.easier.brow.sys.db.mapper.DltMapper" >
+  <resultMap id="BaseResultMap" type="cn.easier.brow.sys.entity.Dlt" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="utime" property="utime" jdbcType="TIMESTAMP" />
+    <result column="back1" property="back1" jdbcType="VARCHAR" />
+    <result column="back2" property="back2" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, openid, integral, username, utime,back1,back2
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultType="cn.easier.brow.sys.entity.Dlt">
+    select 
+   	*
+    from dlt
+    where openid = #{openid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <update id="updateIntegral" parameterType="cn.easier.brow.sys.entity.Dlt" >
+  	 update dlt
+    <set >
+      <if test="id != null" >
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+       <if test="utime != null" >
+        utime = #{utime,jdbcType=TIMESTAMP},
+      </if>
+        <if test="back1 != null" >
+        back1 = #{back1,jdbcType=VARCHAR},
+      </if>
+        <if test="back2 != null" >
+        back2 = #{back2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where openid = #{openid,jdbcType=VARCHAR}
+  	
+  </update>
+  
+  
+  <insert id="insertSelective" parameterType="cn.easier.brow.sys.entity.Dlt" >
+    insert into dlt (id, openid, integral, username, utime,back1,back2)
+    values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{utime,jdbcType=VARCHAR},#{back1,jdbcType=VARCHAR},#{back2,jdbcType=VARCHAR})
+  </insert>
+  
+  
+</mapper>

@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>接口示例</title>
+<style>
+.new {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<pre>
+		
+	<a href="#1001">根据openid修改积分</a>
+	<a href="#1002">根据openid查找用户信息</a>
+
+</pre>
+
+<pre> 
+
+
+
+
+
+<b>上根据openid查找用户信息</b><i id="1001">
+http URL:  http://ip:port/dlt/update
+请求报文：
+{
+  openid:id, 										必填
+  type :add,										增加还是减少	必填
+  data：500, 										数额	必填
+}
+返回报文：
+{
+	"repBody": {
+		更新失败/更新成功
+	},
+	"resCode": "0",
+	"resMsg": "success"
+}
+</i>
+
+
+<b>上根据openid查找用户信息</b><i id="1002">
+http URL:  http://ip:port/dlt/select
+请求报文：
+{
+  openid:id, 										必填
+}
+返回报文：
+{
+	"repBody": {
+		"id":1,"						//id
+		integral":322,					//积分
+		"openid":"2323",				//openid
+		"username":"3223"				//用户姓名
+	},
+	"resCode": "0",
+	"resMsg": "success"
+}
+</i>
+
+
+
+
+</pre>
+
+	<table border="1" width="400" cellpadding="0" cellspacing="0">
+		<tr>
+			<th colspan="2">错误编码对照表</th>
+		</tr>
+		<tr>
+			<th>编码</th>
+			<th>描述</th>
+		</tr>
+
+		<tr>
+			<td>0</td>
+			<td>成功</td>
+		</tr>
+
+		<tr>
+			<td>10003</td>
+			<td>token无效</td>
+		</tr>
+		<tr>
+			<td>10002</td>
+			<td>参数验证错误</td>
+		</tr>
+
+		<tr>
+			<td>400003</td>
+			<td>dao操作错误</td>
+		</tr>
+
+		<tr>
+			<td>600100</td>
+			<td>服务器DB操作失败</td>
+		</tr>
+
+		<tr>
+			<td>10001</td>
+			<td>系统错误</td>
+		</tr>
+
+	</table>
+
+</body>
+</html>
